@@ -1,10 +1,10 @@
-  /* =======================================
+/* =======================================
    🌐 ดึงฟอนต์น่ารักและสุภาพ (Prompt & Mitr)
    ======================================= */
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&family=Prompt:wght@300;400;500;600&display=swap');
 
 /* =======================================
-   🔥 พื้นหลังสีสันสดใส ไหลวนเคลื่อนไหว (Animated Colorful Gradient)
+   💖 พื้นหลังสีชมพูฟุ้ง ละมุน และเคลื่อนไหวไหลวน (Animated Pink Pastel Grid)
    ======================================= */
 body {
     font-family: 'Prompt', 'Mitr', sans-serif;
@@ -13,71 +13,74 @@ body {
     margin: 0;
     padding: 0;
     
-    /* สาดสีสันสดใสเต็มพิกัด */
-    background: linear-gradient(-45deg, #ff416c, #ff4b2b, #ff8c00, #ffeb3b, #00c6ff, #0072ff, #7f00ff, #ff007f);
+    /* สาดสีชมพูนม ชมพูซากุระ และม่วงพาสเทลหวานๆ (ไม่มีสีส้มแล้วครับ) */
+    background: linear-gradient(-45deg, #ffc0cb, #ffb6c1, #ffe4e1, #f3e5f5, #e8eaf6, #ffb6c1);
     background-size: 400% 400%;
     
-    /* สั่งให้สีไหลวนไปเรื่อยๆ อย่างไม่มีวันสิ้นสุด */
-    animation: gradientFlow 10s ease infinite;
+    /* สั่งให้คลื่นสีชมพูฟุ้งเคลื่อนไหวไหลวนช้าๆ ดูละมุนตา */
+    animation: pinkFlow 8s ease infinite;
     background-attachment: fixed;
     
-    color: #2c3e50;
+    color: #5c4b51; /* สีน้ำตาลอมม่วงเข้ม สุภาพและอ่านง่ายมากบนสีชมพู */
 }
 
-/* แอนิเมชันเสกให้สีพื้นหลังขยับไหลวน */
-@keyframes gradientFlow {
+/* แอนิเมชันเสกให้สีพื้นหลังชมพูขยับไหลวน */
+@keyframes pinkFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
 /* =======================================
-   🎀 ส่วนหัวเว็บไซต์แบบใส (Transparent Header)
+   🎀 ส่วนหัวเว็บไซต์ (Header)
    ======================================= */
 header {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px); 
     padding: 50px 20px;
     text-align: center;
-    border-bottom: 3px dashed rgba(255, 255, 255, 0.4);
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.6);
 }
 
 header h1 {
     font-family: 'Mitr', sans-serif;
-    font-size: 3rem;
-    color: #ffffff; /* ตัวหนังสือสีขาวล้วนให้ตัดกับพื้นหลังสดใส */
+    font-size: 2.8rem;
+    color: #ff69b4; /* สีชมพู Hot Pink สดใส */
     margin: 0 0 10px 0;
-    text-shadow: 3px 3px 0px #ff416c, 5px 5px 15px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 0px #ffffff, 0px 4px 10px rgba(255, 105, 180, 0.2);
 }
 
 header p {
-    font-size: 1.25rem;
-    color: #ff4b2b;
+    font-size: 1.15rem;
+    color: #ff8da1; /* สีชมพูพาสเทลเข้ม */
     margin: 0;
     background: #ffffff;
     display: inline-block;
     padding: 6px 25px;
     border-radius: 25px;
     font-weight: 500;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
 }
 
 /* =======================================
-   📦 กล่องข้อความกระจกวิเศษออร่า (Aura Glass Boxes)
+   📦 กล่องข้อความกระจกใสฟรุ้งฟริ้ง (Glassmorphism Cloud Boxes)
    ======================================= */
 section {
     padding: 35px;
     margin: 40px auto;
     max-width: 700px;
     
-    /* กล่องกระจกขาวใส ช่วยให้ข้อความด้านในอ่านง่ายสุดๆ ไม่โดนสีพื้นหลังแย่งซีน */
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 30px; 
-    border: 4px solid #ffffff; 
+    /* ปรับกล่องให้โปร่งแสงมากขึ้น (0.65) เพื่อให้มองทะลุเห็นสีชมพูฟุ้งๆ วิ่งผ่านด้านหลัง */
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); /* เพิ่มเอฟเฟกต์กระจกฝ้าให้ฟุ้งละมุน */
     
-    /* เงาออร่าฟุ้งๆ รอบกล่อง */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-radius: 30px; 
+    border: 3px solid rgba(255, 255, 255, 0.7); /* ขอบขาวใส */
+    
+    /* เงาสีชมพูบางๆ รอบกล่อง */
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
     
     /* ตั้งค่าให้กล่องขยับนุ่มนวล */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -85,31 +88,33 @@ section {
 
 /* เอฟเฟกต์ตอนเมาส์ชี้กล่อง (Hover) */
 section:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
-    border-color: #ffeb3b; /* เปลี่ยนขอบเป็นสีเหลืองนีออนตอน hover */
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.85); /* สว่างขึ้นตอนเมาส์ชี้ */
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
+    border-color: #ffb6c1; /* เปลี่ยนขอบเป็นสีชมพูอ่อนตอน hover */
 }
 
 /* หัวข้อประจำกล่องข้อความ */
 h2 {
     font-family: 'Mitr', sans-serif;
-    font-size: 1.8rem;
-    color: #ff416c; /* ใช้สีชมพูแดงสุดจี๊ด */
+    font-size: 1.6rem;
+    color: #ff6b8b; /* สีชมพูหวานประทับใจ */
     margin-top: 0;
     margin-bottom: 25px;
     position: relative;
     display: inline-block;
 }
 
+/* แถบไฮไลท์สีชมพูฟุ้งใต้หัวข้อ */
 h2::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: -2px;
     width: 100%;
-    height: 10px;
-    background: rgba(255, 65, 108, 0.2);
-    border-radius: 5px;
+    height: 8px;
+    background: rgba(255, 182, 193, 0.5);
+    border-radius: 4px;
     z-index: -1;
 }
 
@@ -122,37 +127,37 @@ h2::after {
 }
 
 .profile-img {
-    width: 170px;
-    height: 170px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    border-radius: 35px; /* ขอบมนทรงสี่เหลี่ยมโค้งน่ารัก */
-    border: 6px solid #ffffff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 35px; /* ขอบมนน่ารัก */
+    border: 5px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
     
-    /* 💃 สั่งให้รูปเล่นแอนิเมชันพร้อมกัน 2 ท่า: ทั้งลอยขึ้นลง และเอียงหมุนไปมา! */
+    /* 💃 รูปจารย์โกโจลอยขึ้นลง และเอียงหมุนดุ๊กดิ๊กไปมาตลอดเวลา */
     animation: floatUpDown 4s ease-in-out infinite, wiggleWiggle 2.5s ease-in-out infinite;
     
     transition: all 0.3s ease;
 }
 
-/* เมื่อเมาส์ชี้ที่รูป รูปจะเด้งโตขึ้นและหมุนติ้วทักทายอย่างร่าเริง */
+/* เมื่อเมาส์ชี้ที่รูป รูปจะเด้งโตขึ้นทักทาย */
 .profile-img:hover {
-    transform: scale(1.15) rotate(10deg);
-    border-color: #ff416c;
-    box-shadow: 0 15px 35px rgba(255, 65, 108, 0.4);
+    transform: scale(1.1) rotate(6deg);
+    border-color: #ff69b4;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
     cursor: pointer;
 }
 
 /* 🔄 ท่าที่ 1: แอนิเมชันหมุนส่ายไปมาซ้ายขวา */
 @keyframes wiggleWiggle {
-    0%, 100% { transform: rotate(-4deg); }
-    50% { transform: rotate(4deg); }
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
 }
 
 /* 🎈 ท่าที่ 2: แอนิเมชันลอยขึ้นและลงอย่างนุ่มนวล */
 @keyframes floatUpDown {
-    0%, 100% { translateY: 0px; }
-    50% { transform: translateY(-12px); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 /* =======================================
@@ -161,28 +166,29 @@ h2::after {
 
 /* กล่องผลงานย่อย */
 .project {
-    background: #fff;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 20px;
-    border-left: 6px solid #ff4b2b; /* เส้นสีส้มแดงจี๊ด */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin: 18px 0;
+    border-radius: 18px;
+    border-left: 6px solid #ff8da1; /* เส้นสีชมพูหวาน */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
     transition: all 0.3s ease;
 }
 
 .project:nth-child(odd) {
-    border-left-color: #00c6ff; /* สลับเป็นสีฟ้าสดใส */
+    border-left-color: #b5fffc; /* สลับเป็นสีฟ้ามินต์พาสเทล */
 }
 
 .project:hover {
-    transform: translateX(10px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: translateX(8px);
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.1);
 }
 
 .project h3 {
     font-family: 'Mitr', sans-serif;
     margin: 0 0 8px 0;
-    color: #2c3e50;
+    color: #5c4b51;
 }
 
 /* รายการทักษะ */
@@ -192,29 +198,28 @@ ul {
 }
 
 li {
-    margin: 15px 0;
-    font-size: 1.1rem;
-    padding: 12px 20px;
-    background: #f8f9fa;
-    border-radius: 16px;
+    margin: 14px 0;
+    font-size: 1.05rem;
+    padding: 10px 18px;
+    background: rgba(255, 228, 225, 0.4); /* พื้นหลังชมพูระเรื่อบางๆ */
+    border-radius: 14px;
     display: flex;
     align-items: center;
     transition: all 0.2s;
-    border: 1px solid #e9ecef;
-    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-li::before { content: '🧪'; margin-right: 15px; font-size: 1.3rem; }
+li::before { content: '🧪'; margin-right: 12px; font-size: 1.2rem; }
 li:nth-child(2)::before { content: '🔬'; }
 li:nth-child(3)::before { content: '🎨'; }
 li:nth-child(4)::before { content: '💬'; }
 
 li:hover {
     background: #ffffff;
-    transform: scale(1.03);
-    color: #ff416c;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border-color: rgba(255, 65, 108, 0.3);
+    transform: scale(1.02);
+    color: #ff6b8b;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+    border-color: rgba(255, 105, 180, 0.3);
 }
 
 /* =======================================
@@ -223,17 +228,16 @@ li:hover {
 footer {
     text-align: center;
     padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    color: #ffffff;
-    border-top: 3px dashed rgba(255, 255, 255, 0.4);
+    color: #5c4b51;
+    border-top: 2px dashed rgba(255, 255, 255, 0.6);
     margin-top: 80px;
 }
 
 footer p {
     margin: 10px 0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 footer a {
@@ -241,15 +245,15 @@ footer a {
     text-decoration: none;
     font-weight: bold;
     padding: 6px 15px;
-    background: #ff416c;
+    background: #ff6b8b;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
     transition: 0.3s;
 }
 
 footer a:hover {
     background: #ffffff;
-    color: #ff416c;
+    color: #ff6b8b;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(255, 107, 139, 0.4);
 }
