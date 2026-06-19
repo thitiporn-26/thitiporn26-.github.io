@@ -1,180 +1,173 @@
 /* =======================================
-   🌸 Setup & โทนสีพาสเทลละมุน (Theme Setup)
+   🌐 ดึงฟอนต์ Prompt และ Mitr จาก Google Fonts 
+   ======================================= */
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&family=Prompt:wght@300;400;500;600&display=swap');
+
+/* =======================================
+   🌟 พื้นหลังฟุ้งละมุนตามพาเลทสี (Aesthetic Blurry Gradient)
    ======================================= */
 body {
-    font-family: 'Prompt', 'Arial', sans-serif; /* แนะนำให้ต่อยอดใช้ฟอนต์ Prompt จะน่ารักมาก */
+    /* เปลี่ยนฟอนต์หลักของเว็บเป็น Prompt และใช้ Mitr เป็นฟอนต์สำรอง */
+    font-family: 'Prompt', 'Mitr', 'Helvetica Neue', sans-serif;
+    font-weight: 300; /* ทำให้ตัวหนังสือบางลงเล็กน้อย ดูคลีนและสุภาพ */
     line-height: 1.7;
     margin: 0;
     padding: 0;
     
-    /* พื้นหลังไล่เฉดสีพาสเทลนุ่มๆ เคลื่อนไหวช้าๆ สบายตา */
-    background: linear-gradient(-45deg, #fff5f5, #eef2f7, #e8f5e9, #f3e5f5);
-    background-size: 400% 400%;
-    animation: pastelBG 12s ease infinite;
-    color: #4a5568;
-}
-
-/* แอนิเมชันพื้นหลังให้ค่อยๆ เปลี่ยนสีแบบนุ่มนวล */
-@keyframes pastelBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    /* สไตล์สีฟุ้งกระจาย (Mesh Gradient) */
+    background-color: #ffb3b3;
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(255, 235, 59, 0.6) 0px, transparent 50%),  
+        radial-gradient(at 90% 10%, rgba(255, 152, 0, 0.5) 0px, transparent 50%),   
+        radial-gradient(at 50% 80%, rgba(244, 67, 54, 0.4) 0px, transparent 50%),   
+        radial-gradient(at 80% 90%, rgba(255, 182, 193, 0.7) 0px, transparent 50%), 
+        radial-gradient(at 20% 80%, rgba(255, 110, 110, 0.5) 0px, transparent 50%); 
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+    color: #4a3b32; 
 }
 
 /* =======================================
    🎀 ส่วนหัวเว็บไซต์ (Header)
    ======================================= */
 header {
-    /* ใช้สีชมพู-ฟ้าพาสเทลไล่เฉด */
-    background: linear-gradient(135deg, #ffdee9 0%, #b5fffc 100%);
+    background: rgba(255, 255, 255, 0.35);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); 
     padding: 50px 20px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 3px dashed #fff;
-    box-shadow: 0 4px 20px rgba(255, 222, 233, 0.5);
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.6);
 }
 
 header h1 {
-    font-size: 2.6rem;
-    color: #4a4e69;
+    font-family: 'Mitr', sans-serif; /* ใช้ฟอนต์ Mitr ตรงหัวข้อใหญ่ เพิ่มความน่ารักกลมมน */
+    font-weight: 400;
+    font-size: 2.8rem;
+    color: #d32f2f; 
     margin: 0 0 10px 0;
-    text-shadow: 2px 2px 0px #ffffff;
-    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 header p {
     font-size: 1.15rem;
-    color: #6c757d;
+    color: #e65100; 
     margin: 0;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     display: inline-block;
-    padding: 4px 15px;
-    border-radius: 20px;
+    padding: 5px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
 /* =======================================
-   📦 กล่องข้อความแต่ละส่วน (Sections)
+   📦 กล่องข้อความก้อนเมฆโปร่งแสง (Glassmorphic Cloud Boxes)
    ======================================= */
 section {
-    padding: 30px;
-    margin: 35px auto;
+    padding: 35px;
+    margin: 40px auto;
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.85);
     
-    /* ทำกล่องมนๆ นุ่มฟูแบบก้อนเมฆ */
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     
-    /* ใส่เงาละมุนฟุ้งๆ ไม่เข้มเกินไป */
-    box-shadow: 0 10px 30px rgba(161, 196, 253, 0.15);
+    border-radius: 30px; 
+    border: 3px solid #ffffff; 
+    box-shadow: 0 15px 35px rgba(230, 81, 0, 0.08);
     
-    /* ดีไซน์ขอบเป็นเส้นคู่สีขาวน่ารักๆ */
-    border: 4px double #ffffff;
-    
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.4s ease;
 }
 
-/* เอฟเฟกต์ตอนเมาส์ชี้ (Hover) ให้กล่องขยับดุ๊กดิ๊กน่ารัก */
 section:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 15px 35px rgba(161, 196, 253, 0.3);
-    background: #ffffff;
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px rgba(230, 81, 0, 0.15);
+    border-color: #ffe0b2; 
 }
 
 /* หัวข้อประจำกล่องข้อความ */
 h2 {
+    font-family: 'Mitr', sans-serif; /* หัวข้อ Section ใช้ Mitr ให้ดูเด่นและเป็นระเบียบ */
+    font-weight: 400;
     font-size: 1.6rem;
-    color: #4a4e69;
+    color: #e65100;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
     display: inline-block;
 }
 
-/* ใส่แถบไฮไลท์สีพาสเทลใต้หัวข้อ h2 */
 h2::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -2px;
     width: 100%;
-    height: 8px;
-    background: #c2e9fb; /* สีฟ้าพาสเทล */
-    border-radius: 4px;
+    height: 10px;
+    background: rgba(255, 167, 38, 0.4);
+    border-radius: 5px;
     z-index: -1;
-    opacity: 0.7;
 }
 
 /* =======================================
-   🔬 ตกแต่งดีไซน์ภายในเพื่อไม่ให้น่าเบื่อ
+   🔬 ตกแต่งดีไซน์ภายในกล่อง
    ======================================= */
 
-/* 1. กล่องข้อความย่อยในส่วน "ผลงานของฉัน" (Project Cards) */
+/* กล่องผลงานย่อย (Project Cards) */
 .project {
-    background: #fdfbf7; /* สีครีมนมสดเนื้อนุ่ม */
+    background: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    margin: 18px 0;
-    border-radius: 16px;
-    border-left: 6px solid #a1c4fd; /* เส้นขอบข้างสีฟ้าพาสเทล */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    margin: 20px 0;
+    border-radius: 18px;
+    border-left: 6px solid #ff7043; 
     transition: all 0.3s ease;
 }
 
-/* สลับสีเส้นขอบให้กล่องโปรเจกต์อันที่ 2 เป็นสีชมพู จะได้ไม่จำเจ */
 .project:nth-child(odd) {
-    border-left-color: #ffc3a0; 
-    background: #fff9f9;
+    border-left-color: #ffb74d; 
 }
 
 .project:hover {
-    transform: translateX(6px);
+    transform: translateX(8px);
     background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
 }
 
 .project h3 {
+    font-family: 'Mitr', sans-serif;
+    font-weight: 400;
     margin: 0 0 8px 0;
-    color: #5d5c61;
-    font-size: 1.2rem;
+    color: #bf360c;
 }
 
-/* 2. รายการในส่วน "ทักษะของฉัน" (Skills List) */
+/* รายการในส่วน "ทักษะของฉัน" (Skills List) */
 ul {
-    padding-left: 10px;
-    list-style: none; /* เอาจุดวงกลมเดิมออก */
+    padding-left: 5px;
+    list-style: none;
 }
 
 li {
-    margin: 12px 0;
+    margin: 14px 0;
     font-size: 1.05rem;
-    color: #555;
-    padding: 8px 15px;
-    background: rgba(232, 245, 233, 0.6); /* พื้นหลังสีเขียวมินต์พาสเทลเบาๆ */
-    border-radius: 12px;
+    padding: 10px 18px;
+    background: rgba(255, 243, 224, 0.6); 
+    border-radius: 14px;
     display: flex;
     align-items: center;
     transition: 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* ใส่สัญลักษณ์น่ารักๆ หน้าทักษะ */
-li::before {
-    content: '🧪'; /* สัญลักษณ์หลอดทดลองวิทยาศาสตร์ */
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
-/* สลับไอคอนและสีพื้นหลังทักษะอันอื่นๆ ให้ดูน่ารักมีมิติ */
-li:nth-child(2)::before { content: '🔬'; } /* กล้องจุลทรรศน์ */
-li:nth-child(2) { background: rgba(225, 245, 254, 0.6); }
-
-li:nth-child(3)::before { content: '🎨'; } /* จานสี */
-li:nth-child(3) { background: rgba(255, 243, 224, 0.6); }
-
-li:nth-child(4)::before { content: '💬'; } /* กล่องคำพูด */
-li:nth-child(4) { background: rgba(252, 228, 236, 0.6); }
+li::before { content: '🧪'; margin-right: 12px; font-size: 1.2rem; }
+li:nth-child(2)::before { content: '🔬'; }
+li:nth-child(3)::before { content: '🎨'; }
+li:nth-child(4)::before { content: '💬'; }
 
 li:hover {
     background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(255, 110, 110, 0.1);
 }
 
 /* =======================================
@@ -182,29 +175,31 @@ li:hover {
    ======================================= */
 footer {
     text-align: center;
-    padding: 35px 20px;
-    background: #f7f9fa;
-    color: #7a869a;
-    border-top: 2px dashed #e2e8f0;
-    margin-top: 60px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #5d4037;
+    border-top: 2px dashed rgba(255, 255, 255, 0.5);
+    margin-top: 80px;
 }
 
 footer p {
-    margin: 8px 0;
+    margin: 10px 0;
 }
 
 footer a {
-    color: #ff8fa3; /* ลิงก์อีเมลสีชมพูพาสเทล */
+    color: #d32f2f;
     text-decoration: none;
     font-weight: bold;
-    padding: 3px 8px;
-    background: rgba(255, 143, 163, 0.1);
-    border-radius: 8px;
+    padding: 5px 12px;
+    background: rgba(211, 47, 47, 0.08);
+    border-radius: 10px;
     transition: 0.3s;
 }
 
 footer a:hover {
     color: #ffffff;
-    background: #ff8fa3;
-    box-shadow: 0 4px 10px rgba(255, 143, 163, 0.3);
+    background: #d32f2f;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25);
 }
