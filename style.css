@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&family=Prompt:wght@300;400;500;600&display=swap');
 
 /* =======================================
-    💖 พื้นหลังสีชมพูฟุ้ง ละมุน + ✨ ดาวกลิตเตอร์เรืองแสงลอยวน
+    💖 พื้นหลังสีชมพูฟุ้ง ละมุน + 🌟 ดาวกลิตเตอร์เรืองแสงขนาดกลาง ขยับเร็ว
    ======================================= */
 body {
     font-family: 'Prompt', 'Mitr', sans-serif;
@@ -26,26 +26,28 @@ body {
     overflow-x: hidden;
 }
 
-/* 🌟 เสกชั้นดาวกลิตเตอร์ดวงเล็กๆ เรืองแสง วนอยู่ด้านหลังกล่องกระจกใส */
+/* 🌟 เสกชั้นฝูงดาวกลิตเตอร์สี่แฉก (✦) ขนาดกลาง เรืองแสงและขยับเร็ว */
 body::before {
-    content: "";
+    content: "✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* ปรับแต่งจุดกลิตเตอร์สีขาวเรืองแสงดวงเล็กๆ ไม่ใหญ่มาก */
-    background-image: 
-        radial-gradient(#ffffff 1px, rgba(255,255,255,0.7) 1.5px, transparent 2px),
-        radial-gradient(#ffffff 0.8px, rgba(255,255,255,0.5) 1.2px, transparent 2px),
-        radial-gradient(#ffffff 0.5px, rgba(255,255,255,0.3) 1px, transparent 1.5px);
-    background-size: 200px 200px, 150px 150px, 100px 100px;
-    background-position: 0 0, 40px 60px, 15px 30px;
-    z-index: -1; /* ซ่อนไว้ใต้กล่องเนื้อหาเว็บ */
-    opacity: 0.9;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     
-    /* สั่งให้กลุ่มดาวขยับวนๆ ลอยๆ อย่างนุ่มนวลช้าๆ */
-    animation: glitterSpin 20s linear infinite;
+    /* ปรับแต่งรูปร่างดาวและขนาดให้เป็นขนาดกลางๆ รู้ว่าเป็นรูปดาว */
+    font-size: 24px; 
+    color: #ffffff;
+    word-spacing: 60px;
+    line-height: 80px;
+    z-index: -1; /* ซ่อนไว้ใต้กล่องเนื้อหาเว็บ */
+    opacity: 0.75;
+    
+    /* เสกเอฟเฟกต์ให้ดาวเรืองแสงวิ้งๆ ออกมาโดยรอบ */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 15px rgba(255, 105, 180, 0.5));
+    
+    /* ปรับความเร็วแอนิเมชันให้ขยับหมุนวนเร็วขึ้นทันใจ (จาก 20s เหลือ 8s) */
+    animation: glitterFastSpin 8s linear infinite;
 }
 
 /* แอนิเมชันเสกให้สีพื้นหลังชมพูขยับไหลวน */
@@ -55,10 +57,10 @@ body::before {
     100% { background-position: 0% 50%; }
 }
 
-/* 🔄 แอนิเมชันเสกให้ดาวกลิตเตอร์ลอยวนเบาๆ ด้านหลัง */
-@keyframes glitterSpin {
+/* 🔄 แอนิเมชันสั่งให้กลุ่มดาวเรืองแสงหมุนวนและขยับสั่นไหวแบบเร็วขึ้น */
+@keyframes glitterFastSpin {
     0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(8px, -8px) rotate(1deg); }
+    50% { transform: translate(25px, -25px) rotate(3deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
 
@@ -159,7 +161,7 @@ h2::after {
     border: 5px solid #ffffff;
     box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
     
-    /* รูปโปรไฟล์หลักลอยดุ๊กดิ๊กน่ารักของเดิม */
+    /* รูปโปรไฟล์หลักลอยดุ๊กดิ๊กน่ารักเหมือนเดิม */
     animation: floatUpDown 4s ease-in-out infinite, wiggleWiggle 2.5s ease-in-out infinite;
     transition: all 0.3s ease;
 }
@@ -182,21 +184,24 @@ h2::after {
 }
 
 /* =======================================
-    🛠️ บังคับให้รูปผลงานชิ้นที่ 1 นิ่งสนิท และขนาดปกติเหมือนรูปโปรไฟล์
+    🛠️ ปรับเปลี่ยน: รูปผลงานชิ้นที่ 1 ขนาด 50px ขอบเหลี่ยมตัดตรง ไม่ขยับ
    ======================================= */
 .infographic-container {
     margin-top: 15px;
     text-align: left;
 }
 
-/* จัดรูปให้มีขนาด 50px ล็อคให้นิ่ง 100% */
+/* จัดรูปภาพผลงานชิ้นที่ 1 ให้มีขนาด 50px เหลี่ยมตรงเป๊ะ และอยู่คงที่สถิตนิ่ง */
 .static-infographic {
     width: 50px !important;
     height: 50px !important;
     object-fit: cover !important;
-    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3) !important;
     
-    /* ล้างค่าและบล็อกแอนิเมชันทุกกรณีเพื่อให้รูปภาพนี้สถิตนิ่งสนิท */
+    border-radius: 0px !important; /* เอาขอบมนออก เป็นรูปสี่เหลี่ยมตัดตรง */
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    
+    /* ล้างค่าแอนิเมชันและการเคลื่อนไหวทั้งหมด */
     animation: none !important;
     transform: none !important;
     transition: none !important;
