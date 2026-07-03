@@ -189,13 +189,11 @@ h2::after {
     text-align: left;
 }
 
-/* จัดรูปให้มีขนาด 50px ขอบมน 35px ล็อคให้นิ่ง 100% */
+/* จัดรูปให้มีขนาด 50px ล็อคให้นิ่ง 100% */
 .static-infographic {
-    width: 160px !important;
-    height: 160px !important;
+    width: 50px !important;
+    height: 50px !important;
     object-fit: cover !important;
-    border-radius: 35px !important; /* หน้าตาขอบมนสี่เหลี่ยมเหมือนรูปโปรไฟล์ */
-    border: 5px solid #ffffff !important;
     box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3) !important;
     
     /* ล้างค่าและบล็อกแอนิเมชันทุกกรณีเพื่อให้รูปภาพนี้สถิตนิ่งสนิท */
