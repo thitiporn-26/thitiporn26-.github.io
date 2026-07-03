@@ -26,28 +26,32 @@ body {
     overflow-x: hidden;
 }
 
-/* 🌟 เสกชั้นฝูงดาวกลิตเตอร์สี่แฉก (✦) ขนาดกลาง เรืองแสงและขยับเร็ว */
+/* 🌟 เสกชั้นฝูงดาวกลิตเตอร์เรืองแสง ขนาดกลางๆ เห็นชัดเจน และขยับเร็ว (วาดด้วย CSS เผื่อป้องกันดาวหาย) */
 body::before {
-    content: "✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦  .  ✦";
+    content: "";
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    
-    /* ปรับแต่งรูปร่างดาวและขนาดให้เป็นขนาดกลางๆ รู้ว่าเป็นรูปดาว */
-    font-size: 24px; 
-    color: #ffffff;
-    word-spacing: 60px;
-    line-height: 80px;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
     z-index: -1; /* ซ่อนไว้ใต้กล่องเนื้อหาเว็บ */
-    opacity: 0.75;
+    opacity: 0.85;
     
-    /* เสกเอฟเฟกต์ให้ดาวเรืองแสงวิ้งๆ ออกมาโดยรอบ */
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 15px rgba(255, 105, 180, 0.5));
+    /* วาดลวดลายดวงดาวขนาดกลางด้วยเทคนิค Radial Gradient ให้เป็นประกายแฉกเรืองแสง */
+    background-image: 
+        radial-gradient(circle, #ffffff 3px, rgba(255,255,255,0.8) 7px, transparent 12px),
+        radial-gradient(circle, #ffffff 2px, rgba(255,255,255,0.7) 5px, transparent 9px),
+        radial-gradient(circle, #ffffff 4px, rgba(255,255,255,0.9) 8px, transparent 15px);
     
-    /* ปรับความเร็วแอนิเมชันให้ขยับหมุนวนเร็วขึ้นทันใจ (จาก 20s เหลือ 8s) */
-    animation: glitterFastSpin 8s linear infinite;
+    /* ขนาดตารางการกระจายตัวของดวงดาวให้เห็นชัดเจนไม่เล็กเกินไป */
+    background-size: 180px 180px, 240px 240px, 300px 300px;
+    background-position: 0 0, 60px 80px, 120px 150px;
+    
+    /* เสกเอฟเฟกต์ดาวเรืองแสงวิ้งๆ ชัดเจน */
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 12px rgba(255, 105, 180, 0.4));
+    
+    /* ปรับความเร็วแอนิเมชันให้ดาวหมุนวนและขยับสั่นไหวแบบเร็วสะใจชวนมอง (5 วินาที) */
+    animation: glitterFastSpin 5s ease-in-out infinite;
 }
 
 /* แอนิเมชันเสกให้สีพื้นหลังชมพูขยับไหลวน */
@@ -57,11 +61,11 @@ body::before {
     100% { background-position: 0% 50%; }
 }
 
-/* 🔄 แอนิเมชันสั่งให้กลุ่มดาวเรืองแสงหมุนวนและขยับสั่นไหวแบบเร็วขึ้น */
+/* 🔄 แอนิเมชันสั่งให้กลุ่มดาวเรืองแสงลอยหมุนวนไปมาแบบเร็วทันใจ */
 @keyframes glitterFastSpin {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(25px, -25px) rotate(3deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    50% { transform: translate(12px, -12px) rotate(2deg) scale(1.05); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 
 /* =======================================
@@ -184,24 +188,24 @@ h2::after {
 }
 
 /* =======================================
-    🛠️ ปรับเปลี่ยน: รูปผลงานชิ้นที่ 1 ขนาด 50px ขอบเหลี่ยมตัดตรง ไม่ขยับ
+    🛠️ แก้ไขแล้ว: รูปผลงานชิ้นที่ 1 ขนาดกลางพอดี (320px) สี่เหลี่ยมตรงเป๊ะ ไม่ขยับ
    ======================================= */
 .infographic-container {
     margin-top: 15px;
-    text-align: left;
+    text-align: center; /* จัดรูปภาพผลงานให้อยู่กึ่งกลางในสัดส่วนที่สวยงาม */
 }
 
-/* จัดรูปภาพผลงานชิ้นที่ 1 ให้มีขนาด 50px เหลี่ยมตรงเป๊ะ และอยู่คงที่สถิตนิ่ง */
+/* ปรับรูปผลงานให้มีขนาดกลาง (320px) ขอบเหลี่ยมตัดตรง และล็อคให้นิ่ง 100% */
 .static-infographic {
-    width: 50px !important;
-    height: 50px !important;
-    object-fit: cover !important;
+    width: 320px !important;  /* ขนาดกึ่งกลางกำลังพอดีตา ไม่ใหญ่ล้นจอและไม่เล็กเกินไป */
+    height: auto !important;   /* ปรับความสูงออโต้เพื่อรักษาอัตราส่วนรูปไม่ให้บี้แบน */
+    max-width: 100% !important; 
     
-    border-radius: 0px !important; /* เอาขอบมนออก เป็นรูปสี่เหลี่ยมตัดตรง */
-    border: 2px solid #ffffff !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0px !important; /* บังคับเป็นสี่เหลี่ยมมุมฉากตรงเป๊ะ (เอาขอบมนออก) */
+    border: 4px solid #ffffff !important; /* ขอบขาวตัดเน้นให้เด่น */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
     
-    /* ล้างค่าแอนิเมชันและการเคลื่อนไหวทั้งหมด */
+    /* ปิดตายและล้างแอนิเมชันทุกกรณีเพื่อให้รูปภาพนิ่งสนิท */
     animation: none !important;
     transform: none !important;
     transition: none !important;
