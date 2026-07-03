@@ -1,16 +1,32 @@
-/* ===================================================
-   ส่วนที่เพิ่มเข้าไปใหม่เพื่อทำพื้นหลังดาวกลิตเตอร์และรูปภาพนิ่งขนาดเล็ก
-   =================================================== */
+/* =======================================
+    🌐 ดึงฟอนต์น่ารักและสุภาพ (Prompt & Mitr)
+   ======================================= */
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&family=Prompt:wght@300;400;500;600&display=swap');
 
-/* 1. สไตล์สำหรับพื้นหลังดาวกลิตเตอร์วิ้งๆ ลอยวน */
+/* =======================================
+    💖 พื้นหลังสีชมพูฟุ้ง ละมุน + ✨ ดาวกลิตเตอร์เรืองแสงลอยวน
+   ======================================= */
 body {
-    /* เปลี่ยนพื้นหลังเป็นธีมน้ำเงินเข้มอวกาศเพื่อให้ดาวเด่นชัดขึ้น */
-    background-color: #0b1026 !important;
-    color: #ffffff !important;           /* ปรับอักษรทั่วไปเป็นสีขาวเพื่อให้ตัดกับพื้นหลังมืด */
+    font-family: 'Prompt', 'Mitr', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    
+    /* คงพื้นหลังคลื่นสีชมพูนมและม่วงพาสเทลหวานๆ ของเดิมเอาไว้ */
+    background: linear-gradient(-45deg, #ffc0cb, #ffb6c1, #ffe4e1, #f3e5f5, #e8eaf6, #ffb6c1);
+    background-size: 400% 400%;
+    
+    /* สั่งให้คลื่นสีชมพูฟุ้งเคลื่อนไหวไหลวนช้าๆ */
+    animation: pinkFlow 12s ease infinite;
+    background-attachment: fixed;
+    
+    color: #5c4b51; 
     position: relative;
     overflow-x: hidden;
 }
 
+/* 🌟 เสกชั้นดาวกลิตเตอร์ดวงเล็กๆ เรืองแสง วนอยู่ด้านหลังกล่องกระจกใส */
 body::before {
     content: "";
     position: fixed;
@@ -18,55 +34,273 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* สร้างกลุ่มจุดดาวเรืองแสงขนาดเล็กจิ๋วสไตล์กลิตเตอร์วิ้งๆ ด้วย CSS */
+    /* ปรับแต่งจุดกลิตเตอร์สีขาวเรืองแสงดวงเล็กๆ ไม่ใหญ่มาก */
     background-image: 
-        radial-gradient(#ffffff, rgba(255,255,255,.5) 1px, transparent 2px),
-        radial-gradient(#ffffff, rgba(255,255,255,.3) 1.5px, transparent 3px),
-        radial-gradient(#ffffff, rgba(255,255,255,.2) 1px, transparent 2px);
-    background-size: 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 30px 50px, 70px 110px;
-    z-index: -1; /* ซ่อนไว้หลังเนื้อหาเว็บ */
+        radial-gradient(#ffffff 1px, rgba(255,255,255,0.7) 1.5px, transparent 2px),
+        radial-gradient(#ffffff 0.8px, rgba(255,255,255,0.5) 1.2px, transparent 2px),
+        radial-gradient(#ffffff 0.5px, rgba(255,255,255,0.3) 1px, transparent 1.5px);
+    background-size: 200px 200px, 150px 150px, 100px 100px;
+    background-position: 0 0, 40px 60px, 15px 30px;
+    z-index: -1; /* ซ่อนไว้ใต้กล่องเนื้อหาเว็บ */
     opacity: 0.9;
     
     /* สั่งให้กลุ่มดาวขยับวนๆ ลอยๆ อย่างนุ่มนวลช้าๆ */
-    animation: glitterSpin 25s linear infinite;
+    animation: glitterSpin 20s linear infinite;
 }
 
-/* แอนิเมชันเสกให้ดาวกลิตเตอร์ลอยวนเบาๆ ด้านหลัง */
+/* แอนิเมชันเสกให้สีพื้นหลังชมพูขยับไหลวน */
+@keyframes pinkFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🔄 แอนิเมชันเสกให้ดาวกลิตเตอร์ลอยวนเบาๆ ด้านหลัง */
 @keyframes glitterSpin {
     0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(15px, -15px) rotate(1deg); }
+    50% { transform: translate(8px, -8px) rotate(1deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* เพิ่มความเด่นให้กรอบเนื้อหาอ่านง่ายขึ้นเมื่ออยู่บนพื้นหลังมืด */
-header, section, footer {
-    background: rgba(255, 255, 255, 0.08) !important;
-    padding: 25px;
-    margin: 20px auto;
-    border-radius: 12px;
-    backdrop-filter: blur(3px); /* เอฟเฟกต์กระจกฝ้าเบาๆ ด้านหลังตัวอักษร */
+/* =======================================
+    🎀 ส่วนหัวเว็บไซต์ (Header)
+   ======================================= */
+header {
+    background: rgba(255, 255, 255, 0.25);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); 
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.6);
 }
 
-/* 2. สไตล์ควบคุมรูปภาพผลงานชิ้นที่ 1 บังคับให้นิ่งสนิท และปรับขนาดปกติเหมือนรูปโปรไฟล์ */
+header h1 {
+    font-family: 'Mitr', sans-serif;
+    font-size: 2.8rem;
+    color: #ff69b4; 
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 0px #ffffff, 0px 4px 10px rgba(255, 105, 180, 0.2);
+}
+
+header p {
+    font-size: 1.15rem;
+    color: #ff8da1; 
+    margin: 0;
+    background: #ffffff;
+    display: inline-block;
+    padding: 6px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
+}
+
+/* =======================================
+    📦 กล่องข้อความกระจกใสฟรุ้งฟริ้ง (Glassmorphism Cloud Boxes)
+   ======================================= */
+section {
+    padding: 35px;
+    margin: 40px auto;
+    max-width: 700px;
+    
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); 
+    
+    border-radius: 30px; 
+    border: 3px solid rgba(255, 255, 255, 0.7); 
+    
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+section:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.85); 
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
+    border-color: #ffb6c1; 
+}
+
+h2 {
+    font-family: 'Mitr', sans-serif;
+    font-size: 1.6rem;
+    color: #ff6b8b; 
+    margin-top: 0;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 182, 193, 0.5);
+    border-radius: 4px;
+    z-index: -1;
+}
+
+/* =======================================
+    📸 โหมดจัดการรูปภาพขยับได้ดุ๊กดิ๊ก (Animated Profile)
+   ======================================= */
+.profile-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 35px; 
+    border: 5px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+    
+    /* รูปโปรไฟล์หลักลอยดุ๊กดิ๊กน่ารักของเดิม */
+    animation: floatUpDown 4s ease-in-out infinite, wiggleWiggle 2.5s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1) rotate(6deg);
+    border-color: #ff69b4;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+    cursor: pointer;
+}
+
+@keyframes wiggleWiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* =======================================
+    🛠️ บังคับให้รูปผลงานชิ้นที่ 1 นิ่งสนิท และขนาดปกติเหมือนรูปโปรไฟล์
+   ======================================= */
 .infographic-container {
     margin-top: 15px;
-    text-align: left; /* จัดรูปให้อยู่ชิดซ้าย */
+    text-align: left;
 }
 
+/* จัดรูปให้มีขนาด 50px ขอบมน 35px ล็อคให้นิ่ง 100% */
 .static-infographic {
-    /* ปรับขนาดให้เท่ากับขนาดของรูปโปรไฟล์ */
     width: 160px !important;
     height: 160px !important;
-    
-    /* บังคับรูปให้อยู่ในกรอบ และปรับขอบมนเหมือนรูปโปรไฟล์ */
     object-fit: cover !important;
-    border-radius: 35px !important;
+    border-radius: 35px !important; /* หน้าตาขอบมนสี่เหลี่ยมเหมือนรูปโปรไฟล์ */
     border: 5px solid #ffffff !important;
-    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2) !important;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3) !important;
     
-    /* สั่งเคลียร์และบล็อกแอนิเมชันทุกรูปแบบด้วย !important เพื่อให้รูปนิ่งสนิท */
+    /* ล้างค่าและบล็อกแอนิเมชันทุกกรณีเพื่อให้รูปภาพนี้สถิตนิ่งสนิท */
     animation: none !important;
     transform: none !important;
     transition: none !important;
+}
+
+/* =======================================
+    🔬 ดีไซน์การตกแต่งด้านในกล่อง
+   ======================================= */
+.project {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin: 18px 0;
+    border-radius: 18px;
+    border-left: 6px solid #ff8da1; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+    transition: all 0.3s ease;
+}
+
+.project:nth-child(odd) {
+    border-left-color: #b5fffc; 
+}
+
+.project:hover {
+    transform: translateX(8px);
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.1);
+}
+
+.project h3 {
+    font-family: 'Mitr', sans-serif;
+    margin: 0 0 8px 0;
+    color: #5c4b51;
+}
+
+/* รายการทักษะ */
+ul {
+    padding-left: 5px;
+    list-style: none;
+}
+
+/* แยกเอฟเฟกต์เฉพาะกล่องรายการทักษะทั่วไป */
+ul:not(.works-list) li {
+    display: flex;
+    align-items: center;
+}
+
+li {
+    margin: 14px 0;
+    font-size: 1.05rem;
+    padding: 10px 18px;
+    background: rgba(255, 228, 225, 0.4); 
+    border-radius: 14px;
+    transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ใส่ไอคอน🧪เฉพาะกล่องทักษะ (#skills) */
+#skills li::before { content: '🧪'; margin-right: 12px; font-size: 1.2rem; }
+#skills li:nth-child(2)::before { content: '🔬'; }
+#skills li:nth-child(3)::before { content: '🎨'; }
+#skills li:nth-child(4)::before { content: '💬'; }
+
+li:hover {
+    background: #ffffff;
+    transform: scale(1.02);
+    color: #ff6b8b;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+/* =======================================
+    🍦 ส่วนท้ายเว็บไซต์ (Footer)
+   ======================================= */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.25);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #5c4b51;
+    border-top: 2px dashed rgba(255, 255, 255, 0.6);
+    margin-top: 80px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 15px;
+    background: #ff6b8b;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
+    transition: 0.3s;
+}
+
+footer a:hover {
+    background: #ffffff;
+    color: #ff6b8b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 107, 139, 0.4);
 }
